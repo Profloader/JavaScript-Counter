@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1,
+  maximum-scale=5"
+    />
+    <title>JavaScript Counter | SideHustle.ng Week 3 Task</title>
+
+    <script src="https://kit.fontawesome.com/501a409cb6.js" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="image/fav.png" type="image/x-icon" sizes="32x32">
+    <link rel="shortcut icon" href="image/fav.png" type="image/x-icon" sizes="16x16">
+
+    <style>
+        body{
+            background-image: url("image/bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #btn1{
+            display: block;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #123456;
+            color: white;
+            border-style: none;
+            margin: auto;
+            box-shadow: 2px 3px 8px black
+        }
+        #btn2{
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #123456;
+            color: white;
+            border-style: none;
+            box-shadow: 2px 3px 8px black;
+        }
+        #info{
+            margin : auto;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+        .main{
+            border: 2px solid white;
+            width: 350px;
+            height: 550px;
+            text-align: center;
+            margin: auto;
+            box-shadow: 0px 8px 12px 0px black;
+        }
+        h1{
+            color: white;
+            padding-top: 30px;
+        }
+        #counter{
+            font-size: 130px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .fab{
+            font-size: 40px;
+            color: black;
+        }
+
+        @media (min-width: 700px){
+            .main{
+                width: 500px;
+                height: 600px;
+                margin : auto;
+            }
+            .buttons{
+                display: flex;
+                margin-top: 15%;
+                justify-content: space-around;
+            }
+            #btn2,#btn1{
+                margin-top: 0px;
+                width: 200px;
+                font-size: 20px;
+            }
+            #counter{
+                margin-top: 15%;
+            }
+            h1{
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+
+
+<div class="main">
+
+    
+
+    <h1>JavaScript Counter | SideHustle.ng Week 3 Task</h1>
+
+    <div id="counter">0</div>
+
+    <div class="buttons">
+        <div><button id="btn1">LOWER COUNT</button></div> 
+        <div><button id="btn2">ADD COUNT</button></div>
+    </div>
+
+    <div id="info"></div>
+
+    
+
+</div>
+</div>
+
+<script>
+
+
+
+    let sub = document.getElementById("btn1");
+    let add = document.getElementById("btn2");
+    let count = 0;
+    let min = 0;
+    let max = 50;
+
+    let text = document.getElementById("info")
+
+    sub.addEventListener("click",()=>{
+
+        if(count>min) {
+            count -= 1;
+            document.getElementById("counter").innerHTML = count;
+        }
+        if(count === min){
+            text.innerHTML = "You have exceeded the minimum number";
+            text.style.color = "blue";
+            text.style.marginTop = "50px";
+            text.style.fontSize = "20px";
+            text.style.textAlign = "center"
+
+            setTimeout(function(){
+                text.innerHTML = '';
+            }, 1000);
+
+        }
+
+else if(count == min){
+            document.getElementById("counter").style.color = "white";
+        }
+    })
+
+
+
+    add.addEventListener("click",()=>{
+
+        if(count < max){
+            count+=1
+            document.getElementById("counter").innerHTML = count;
+        }
+        if(count > min){
+            document.getElementById("counter").style.color = "green";
+        }
+        if(count === max){
+             text.innerHTML = "You have exceeded the maximun number";
+                    text.style.color = "blue";
+                    text.style.marginTop = "50px";
+                    text.style.fontSize = "22px";
+
+            setTimeout(function(){
+                text.innerHTML = '';
+            }, 1000);
+
+        }
+            
+
+        if(count == min){
+            document.getElementById("counter").style.color = "white";
+        }
+    })
+
+</script>
+</body>
+</html>
